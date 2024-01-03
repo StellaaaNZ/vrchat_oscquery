@@ -65,7 +65,7 @@ These services include a type, name, address, port:
 
 * Type: `_oscjson._tcp.local.`
 * Name: A string that ends with `._oscjson._tcp.local.`
-  * Seems like a period is the only thing that's not allowed. I even used 🐌 successfully!
+  * Seems like a period is the only thing that's not allowed. I even used emojis successfully!
 * Address: The IP Address of the http server mentioned above.
 * Port: The Port of the http server mentioned above.
 
