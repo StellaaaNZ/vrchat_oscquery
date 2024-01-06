@@ -1,3 +1,12 @@
+# Installing
+
+Command line:
+`python -m pip install git+https://github.com/theepicsnail/vrchat_oscquery.git#egg=vrchat_oscquery`
+
+Requirements.txt:
+`vrchat_oscquery @ git+https://github.com/theepicsnail/vrchat_oscquery@main`
+
+
 # VRChat OSCQuery Examples
 I could not find any simple/understandable examples of OSCQuery, nor anything
 vrchat specific. There exist some examples of OSCQuery, and figuring out how to
