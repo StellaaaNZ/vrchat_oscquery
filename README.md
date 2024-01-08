@@ -1,3 +1,18 @@
+# Simple proxy usage
+If you just want to run multiple OSC programs at the same time, this library includes a setup script that will register multiple apps with VRChat on specified OSC ports.
+
+For example, the config file 
+```
+{
+  "App 1": 12345,
+  "App 2": 2000
+}
+```
+Will tell VRChat an app named "App 1" is listening for OSC messages on port 12345, an "App 2" is listening on port 2000. Once VRChat is aware of these, the program will shut down.
+
+To run (which will generate a config.json if necessary): `python -m vrchat_oscquery`
+
+
 # Installing
 
 Command line:
