@@ -5,6 +5,19 @@ from zeroconf import ServiceInfo
 from pythonosc.udp_client import SimpleUDPClient
 from pythonosc.dispatcher import Dispatcher
 
+APP_HOST = "127.0.0.1"
+VRC_HOST = "127.0.0.1"
+VRC_PORT = 9000
+
+def _get_app_host() -> str:
+    return APP_HOST
+
+def guess_host_ip():
+    s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+    s.connect(('1.1.1.1', 0))
+    return s.getsockname()[0]
+
+APP_HOST = guess_host_ip()
 
 def _oscjson_response(request_path: str, osc_port: int) -> str:
     """Super specific to VRChat hack for responding to the two requests it sends.
@@ -38,13 +51,13 @@ def _create_service_info(service_name: str, http_port: int) -> ServiceInfo:
     return ServiceInfo(
         "_oscjson._tcp.local.",
         f"{service_name}._oscjson._tcp.local.",
-        addresses=[socket.inet_aton("127.0.0.1")],
+        addresses=[socket.inet_aton(_get_app_host())],
         port=http_port)
 
 
 def vrc_client() -> SimpleUDPClient:
     """Convenience method for providing the default vrchat osc client."""
-    return SimpleUDPClient("127.0.0.1", 9000)
+    return SimpleUDPClient(VRC_HOST, VRC_PORT)
 
 
 def dict_to_dispatcher(routes: dict[str, Callable[[str, str], None]]) -> Dispatcher:
