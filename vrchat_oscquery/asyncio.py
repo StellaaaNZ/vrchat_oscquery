@@ -7,10 +7,10 @@ from pythonosc.dispatcher import Dispatcher
 from .common import _unused_port,  _oscjson_response, _create_service_info, _get_app_host
 
 
-async def vrc_osc(name: str, dispatcher: Dispatcher, foreground=False):
-    osc_port = _unused_port()
+async def vrc_osc(name: str, dispatcher: Dispatcher, foreground=False, Host="", oscPort=0):
+    osc_port = _unused_port() if oscPort == 0 else oscPort
     http_port = _unused_port()
-    host = _get_app_host()
+    host = _get_app_host() if Host == "" else Host
 
     await AsyncZeroconf().async_register_service(_create_service_info(name, http_port))
 
@@ -31,4 +31,4 @@ async def vrc_osc(name: str, dispatcher: Dispatcher, foreground=False):
     if foreground:
         await asyncio.gather(*asyncio.all_tasks())
 
-    return osc_port, http_port
+    return osc_port
