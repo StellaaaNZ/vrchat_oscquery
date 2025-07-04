@@ -1,10 +1,10 @@
 # Installing
 
 Command line:
-`python -m pip install git+https://github.com/theepicsnail/vrchat_oscquery.git#egg=vrchat_oscquery`
+`python -m pip install git+https://github.com/stellaaanz/vrchat_oscquery.git#egg=vrchat_oscquery`
 
 Adding it to your project via requirements.txt:
-`vrchat_oscquery @ git+https://github.com/theepicsnail/vrchat_oscquery@main`
+`vrchat_oscquery @ git+https://github.com/stellaaanz/vrchat_oscquery@main`
 
 
 # Simple proxy usage
