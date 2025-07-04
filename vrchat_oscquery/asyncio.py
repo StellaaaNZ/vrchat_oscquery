@@ -1,5 +1,6 @@
 import asyncio
 from aiohttp import web
+
 from zeroconf.asyncio import AsyncZeroconf
 from pythonosc.osc_server import AsyncIOOSCUDPServer
 from pythonosc.dispatcher import Dispatcher
@@ -29,3 +30,5 @@ async def vrc_osc(name: str, dispatcher: Dispatcher, foreground=False):
 
     if foreground:
         await asyncio.gather(*asyncio.all_tasks())
+
+    return osc_port, http_port
